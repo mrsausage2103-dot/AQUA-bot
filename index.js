@@ -1172,7 +1172,8 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
         if (!selected) return;
 
         const tableText = selected.table
-          .map((row) => `${row[0].padEnd(18)} | ${row[1]}`)
+          .slice(1)
+          .map((row) => `${row[0]} - ${row[1]}`)
           .join("\n");
 
         const embed = new EmbedBuilder()
