@@ -334,7 +334,7 @@ Opisz dokładnie swoją sprawę, a administracją niedługo odpowie.`;
       description = ` Autor: ${interaction.user}
  Kategoria: **${choice}**
 
- Co chcę kupi?:
+ Co chcę kupić:
 **${answers.item}**
 
  Budżet:
@@ -1204,7 +1204,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
           const budgetInput = new TextInputBuilder()
             .setCustomId("zakup_budget")
-            .setLabel("Jaki masz bud?et?")
+            .setLabel("Jaki masz budżet?")
             .setStyle(TextInputStyle.Short)
             .setPlaceholder("np. 20 zl, 50 zl, 100 zl")
             .setRequired(true);
