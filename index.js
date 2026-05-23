@@ -253,7 +253,7 @@ async function zakonczKonkurs(konkursId) {
   const zwyciezcaId = uczestnicy[Math.floor(Math.random() * uczestnicy.length)];
 
   return channel.send(
-    ` Konkurs **${konkurs.nagroda}** zakończony!\n?? Zwyciezca: <@${zwyciezcaId}>`
+      ` Konkurs **${konkurs.nagroda}** zakończony!\nZwycięzca: <@${zwyciezcaId}>`
   );
 }
 
@@ -265,7 +265,7 @@ async function createTicket(interaction, choice, answers = null) {
 
   if (tworzoneTickety.has(lockKey)) {
     return interaction.reply({
-      content: "? Ticket jest już tworzony, poczekaj chwile.",
+      content: "Ticket jest już tworzony, poczekaj chwilę.",
       ephemeral: true,
     });
   }
@@ -282,7 +282,7 @@ async function createTicket(interaction, choice, answers = null) {
 
     if (existing) {
       return interaction.reply({
-        content: "? Masz już otwarty ticket!",
+        content: "Masz już otwarty ticket!",
         ephemeral: true,
       });
     }
@@ -372,7 +372,7 @@ Opisz dokładnie swoją sprawę, a administracją niedługo odpowie.`;
     console.error("Błąd przy tworzeniu ticketa:", err);
 
     const errorPayload = {
-      content: "? Wystąpił błąd przy tworzeniu ticketa. Sprawdź uprawnieńia bota do tworzenia kanał?w i wysyłania wiadomości.",
+      content: "Wystąpił błąd przy tworzeniu ticketa. Sprawdź uprawnienia bota do tworzenia kanałów i wysyłania wiadomości.",
       ephemeral: true,
     };
 
@@ -583,41 +583,41 @@ client.on("messageCreate", async (message) => {
 
   if (message.content === "!regulamin") {
     return message.channel.send(` REGULAMIN SERWERA
-?1 Postanowienia og?lne
+1. Postanowienia ogólne
 
 1.1 Dolaczajac do serwera, akceptujesz niniejszy regulamin.
-1.2 Regulamin obowiązuje wszystkich użytkownik?w bez wyjątku.
+1.2 Regulamin obowiązuje wszystkich użytkowników bez wyjątku.
 1.3 Administracja zastrzega sobie prawo do zmiany regulaminu w dowolnym momencie.
 1.4 Nieznajomosc regulaminu nie zwalnia z obowiazku jego przestrzegania.
 1.5 Serwer dziala zgodnie z zasadami platformy Discord.
 
-?2 Zasady og?lne zachowania
+2. Zasady ogólne zachowania
 
-2.1 Szanuj innych użytkownik?w.
+2.1 Szanuj innych użytkowników.
 2.2 Zakaz dyskryminacji.
 2.3 Zakaz tresci NSFW.
 2.4 Zakaz spamowania.
 2.5 Zakaz reklamowania bez zgody administracji.
 
-?3 Kanały i porzłdek
+3. Kanały i porządek
 
-3.1 Korzystaj z kanał?w zgodnie z ich przeznaczeniem.
-3.2 Nie r?b offtopu.
+3.1 Korzystaj z kanałów zgodnie z ich przeznaczeniem.
+3.2 Nie rób offtopu.
 3.3 Nie uzywaj @everyone i @here.
 
-?4 Administracja
+4. Administracja
 
 4.1 Decyzje administracji sa ostateczne.
-4.2 Pr?by omijania kar skutkuja banem.
+4.2 Próby omijania kar skutkują banem.
 
-?5 Kary
+5. Kary
 
 - Ostrzezenie
 - Wyciszenie
 - Tymczasowy ban
 - Staly ban
 
-?6 System kar
+6. System kar
 
 6.1 W zaleznosci od przewinienia moga zostac zastosowane:
 -Ostrzezenie
@@ -625,12 +625,12 @@ client.on("messageCreate", async (message) => {
 -Tymczasowy ban
 -Staly ban
 
-?7 Postanowienia końcowe
+7. Postanowienia końcowe
 
 Regulamin wchodzi w zycie z dniem publikacji.
 Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
-?8 Odwołania
+8. Odwołania
 
 8.1 Użytkownik ma prawo odwołać się od kary poprzez kontakt z administracją.
 8.2 Administracja rozpatruje odwolania w ciagu maksymalnie 7 dni.
@@ -675,14 +675,14 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
           return interaction.reply({
-            content: "? Nie masz uprawnień do claimowania ticketów.",
+            content: "Nie masz uprawnień do claimowania ticketów.",
             ephemeral: true,
           });
         }
 
         if (interaction.channel.topic?.includes("Claimed by:")) {
           return interaction.reply({
-            content: "? Ten ticket jest już przejęty.",
+            content: "Ten ticket jest już przejęty.",
             ephemeral: true,
           });
         }
@@ -706,7 +706,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
       if (commandName === "partnerstwa") {
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
           return interaction.reply({
-            content: "? Tylko administrator może ustawić kanał partnerstw.",
+            content: "Tylko administrator może ustawić kanał partnerstw.",
             ephemeral: true,
           });
         }
@@ -717,7 +717,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
         savePartnerData();
 
         return interaction.reply({
-          content: `? Kanał partnerstw ustawiony na ${channel}.`,
+          content: `Kanał partnerstw ustawiony na ${channel}.`,
           ephemeral: true,
         });
       }
@@ -743,7 +743,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
           .setDescription(`\`\`\`\n${walletTable}\n\`\`\``)
           .setThumbnail(user.displayAvatarURL({ dynamic: true }))
           .setFooter({
-            text: "Partnerstwa ? 0,50 zł za użyty link",
+            text: "Partnerstwa - 0,50 zł za użyty link",
             iconURL: interaction.guild.iconURL({ dynamic: true }),
           });
 
@@ -753,7 +753,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
       if (commandName === "zatwierdzpartnerstwo") {
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
           return interaction.reply({
-            content: "? Tylko administrator może zatwierdzić partnerstwo.",
+            content: "Tylko administrator może zatwierdzić partnerstwo.",
             ephemeral: true,
           });
         }
@@ -765,7 +765,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
         if (!activeLink) {
           return interaction.reply({
-            content: `? ${user} nie ma aktywnego linku partnerstwa z ostatnich 2 dni.`,
+            content: `${user} nie ma aktywnego linku partnerstwa z ostatnich 2 dni.`,
             ephemeral: true,
           });
         }
@@ -800,7 +800,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
       if (commandName === "reset") {
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
           return interaction.reply({
-            content: "? Tylko administrator może resetować partnerstwa.",
+            content: "Tylko administrator może resetować partnerstwa.",
             ephemeral: true,
           });
         }
@@ -810,7 +810,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
         savePartnerData();
 
         return interaction.reply({
-          content: "? Zresetowano portfele i aktywne partnerstwa.",
+          content: "Zresetowano portfele i aktywne partnerstwa.",
           ephemeral: true,
         });
       }
@@ -839,7 +839,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
         if (!botMember.permissions.has(botPermissionByCommand[commandName])) {
           return interaction.reply({
-            content: "? Bot nie ma wymaganych uprawnień do wykonania tej akcji.",
+          content: "Bot nie ma wymaganych uprawnień do wykonania tej akcji.",
             ephemeral: true,
           });
         }
@@ -849,7 +849,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
         if (!targetMember) {
           return interaction.reply({
-            content: "? Nie znaleziono tego użytkownika na serwerze.",
+          content: "Nie znaleziono tego użytkownika na serwerze.",
             ephemeral: true,
           });
         }
@@ -880,7 +880,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
           interaction.guild.ownerId !== interaction.user.id
         ) {
           return interaction.reply({
-            content: "? Ta osoba ma rolę równą lub wyższą od Twojej.",
+            content: "Ta osoba ma rolę równą lub wyższą od Twojej.",
             ephemeral: true,
           });
         }
@@ -890,7 +890,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
           if (!targetMember.moderatable) {
             return interaction.reply({
-              content: "? Nie mogę wyciszyć tej osoby. Sprawdź rolę bota.",
+              content: "Nie mogę wyciszyć tej osoby. Sprawdź rolę bota.",
               ephemeral: true,
             });
           }
@@ -917,7 +917,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
         if (commandName === "kick") {
           if (!targetMember.kickable) {
             return interaction.reply({
-              content: "? Nie mogę wyrzucić tej osoby. Sprawdź rolę bota.",
+              content: "Nie mogę wyrzucić tej osoby. Sprawdź rolę bota.",
               ephemeral: true,
             });
           }
@@ -940,7 +940,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
         if (commandName === "ban") {
           if (!targetMember.bannable) {
             return interaction.reply({
-              content: "? Nie mogę zbanować tej osoby. Sprawdź rolę bota.",
+              content: "Nie mogę zbanować tej osoby. Sprawdź rolę bota.",
               ephemeral: true,
             });
           }
@@ -1042,7 +1042,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
               { name: " Użytkownik", value: `${interaction.user}`, inline: true },
               {
                 name: " Wynik",
-                value: "? Juz użyće? dropa. Spr?buj ponownie p?zniej.",
+                value: "Już użyłeś dropa. Spróbuj ponownie później.",
                 inline: true,
               },
               { name: " Następne użycie", value: `<t:${nextUse}:R>`, inline: true }
@@ -1066,7 +1066,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
           .addFields(
             { name: " Użytkownik", value: `${interaction.user}`, inline: true },
             { name: " Wynik", value: wygrana ? " 2 zł zniżki" : "Pusto", inline: true },
-            { name: " Kolejna pr?ba", value: `<t:${nextUse}:R>`, inline: true }
+            { name: " Kolejna próba", value: `<t:${nextUse}:R>`, inline: true }
           )
           .setFooter({
             text: "AQYA SHOP × DROP",
@@ -1132,10 +1132,10 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
           .setCustomId("ticket_select")
           .setPlaceholder(" Nie wybrałeś/aś zadnej kategorii.")
           .addOptions([
-            { label: "Zakup", description: "Otwórz ticket dotyczłcy zakupu", value: "zakup" },
-            { label: "Skup", description: "Otwórz ticket dotyczłcy skupu", value: "skup" },
-            { label: "Index", description: "Otwórz ticket dotyczłcy indexu", value: "index" },
-            { label: "Middleman", description: "Otwórz ticket dotyczłcy middlemana", value: "middleman" },
+            { label: "Zakup", description: "Otwórz ticket dotyczący zakupu", value: "zakup" },
+            { label: "Skup", description: "Otwórz ticket dotyczący skupu", value: "skup" },
+            { label: "Index", description: "Otwórz ticket dotyczący indexu", value: "index" },
+            { label: "Middleman", description: "Otwórz ticket dotyczący middlemana", value: "middleman" },
             { label: "Pomoc", description: "Otwórz ticket po pomoc administracji", value: "pomoc" },
           ]);
 
@@ -1197,7 +1197,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
           const itemInput = new TextInputBuilder()
             .setCustomId("zakup_item")
-            .setLabel("Co chcesz kupic?")
+            .setLabel("Co chcesz kupić?")
             .setStyle(TextInputStyle.Short)
             .setPlaceholder("np. SAB, Robux, PS99")
             .setRequired(true);
@@ -1211,7 +1211,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
           const paymentInput = new TextInputBuilder()
             .setCustomId("zakup_payment")
-            .setLabel("Czym p?aciszł")
+            .setLabel("Czym płacisz?")
             .setStyle(TextInputStyle.Short)
             .setPlaceholder("np. BLIK, PayPal, PSC")
             .setRequired(true);
@@ -1288,7 +1288,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
 
         if (!role || !role2) {
           return interaction.reply({
-            content: "Nie znaleziono jednej z r?l weryfikacyjnych. Sprawdź ID r?l i czy bot jest na dobrym serwerze.",
+            content: "Nie znaleziono jednej z ról weryfikacyjnych. Sprawdź ID ról i czy bot jest na dobrym serwerze.",
             ephemeral: true,
           });
         }
@@ -1311,7 +1311,7 @@ Przebywanie na serwerze oznacza pelna akceptacje zasad.
       if (interaction.customId === "ticket_close") {
         if (!isTicketChannel(interaction.channel)) {
           return interaction.reply({
-            content: "? To nie jest ticket!",
+            content: "To nie jest ticket!",
             ephemeral: true,
           });
         }
